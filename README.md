@@ -27,8 +27,8 @@ To use the state picker first import it into your file.
 Once the picker has been imported create a property to set up the delegate and load the states.
 
 ```swift
-lazy var statePicker: StatePicker = {
-    let picker = StatePicker()
+lazy var statePicker: USStatePicker = {
+    let picker = USStatePicker(frame: CGRect.zero)
     picker.statePickerDelegate = self
     picker.loadStates()
     return picker
@@ -42,7 +42,7 @@ the returned state.
 override func viewDidLoad() {
     super.viewDidLoad()
 
-    statesTextField.inputView = statePicker
+    stateTextField.inputView = statePicker
 }
 ```
 
@@ -51,10 +51,10 @@ method will return the state that is selected in the picker. The method will rec
 that has two properties. One for the states name and one for the two character state code.
 
 ```swift
-extension ViewController: StatePickerDelegate {
+extension ViewController: USStatePickerDelegate {
 
     func statePickerSelectedState(state: State) {
-        statesTextField.text = state.code
+        stateTextField.text = state.code
     }
 
 }
@@ -66,7 +66,7 @@ There are three optional delegate methods that you can use to customize the pick
 * The third method can be used to choose how the state is displayed in the picker. You can choose to display the state name or the two character state code. The default for this is the state name.
 
 ```swift
-extension ViewController: StatePickerDelegate {
+extension ViewController: USStatePickerDelegate {
 
     // (1)
     func statePickerAvailableStates() -> [String : String] {

@@ -1,7 +1,7 @@
 PODS:
   - Nimble (3.2.0)
   - Quick (0.9.2)
-  - USStatePicker (0.1.0)
+  - USStatePicker (1.0.0)
 
 DEPENDENCIES:
   - Nimble (~> 3.0)
@@ -15,8 +15,8 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Nimble: 703854335d181df169bbca9c97117b5cf8c47c1d
   Quick: 18d057bc66451eedd5d1c8dc99ba2a5db6e60226
-  USStatePicker: 948f45e008320621731742efa29233d20940e7ed
+  USStatePicker: 861d77602cd9dd9c088983efdd44c5f87ec4d836
 
-PODFILE CHECKSUM: 23a3a0314ccc9162fbeaf5101dd31ca5a882df90
+PODFILE CHECKSUM: cf814ca9e4d33157418262f0af6c2442c1f637cd
 
 COCOAPODS: 1.0.1
