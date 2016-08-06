@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'USStatePicker'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of USStatePicker.'
+  s.version          = '1.0.0'
+  s.summary          = 'Display list of available states for an application in a UIPickerView.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,17 +18,19 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+USStatePicker is a custom UIPickerView that will allow you to easily display a list of states in
+your application. The picker can be customized to show all 50 states or a subset of states based
+on the needs of your application.
                        DESC
 
-  s.homepage         = 'https://github.com/<GITHUB_USERNAME>/USStatePicker'
+  s.homepage         = 'https://github.com/donnywdavis/USStatePicker'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Donny Davis' => 'donnywdavis@icloud.com' }
-  s.source           = { :git => 'https://github.com/<GITHUB_USERNAME>/USStatePicker.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.source           = { :git => 'https://github.com/donnywdavis/USStatePicker.git', :tag => s.version.to_s }
+  # s.social_media_url = 'https://twitter.com/donnywdavis'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'USStatePicker/Classes/**/*'
   
