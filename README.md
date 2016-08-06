@@ -61,7 +61,7 @@ extension ViewController: StatePickerDelegate {
 ```
 
 There are three optional delegate methods that you can use to customize the picker. 
-* The first method can be used to modify the states that are available in the picker. If you don't need all 50 states you can use this method to customize the picker for only the states that you need displayed. 
+* The first method can be used to modify the states that are available in the picker. If you don't need all 50 states you can use this method to customize the picker for only the states that you need displayed. The format of the dictionary passed will be the two character code as the key and the state name as the value.
 * The second method can be used to change the text color in the picker. If this method is not used then the text will default to black.
 * The third method can be used to choose how the state is displayed in the picker. You can choose to display the state name or the two character state code. The default for this is the state name.
 
