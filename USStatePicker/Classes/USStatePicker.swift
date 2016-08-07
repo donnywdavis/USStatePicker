@@ -10,12 +10,15 @@ import UIKit
 
 public class USStatePicker: UIPickerView {
     
-    private var states = [State]()
+    // MARK: Properties
     
-    public weak var statePickerDelegate: StatePickerDelegate?
+    private var states = [State]()    
+    public weak var statePickerDelegate: USStatePickerDelegate?
     
-    init() {
-        super.init(frame: CGRect.zero)
+    // MARK: Initializers
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
         
         self.delegate = self
         self.dataSource = self
@@ -25,21 +28,33 @@ public class USStatePicker: UIPickerView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Load States
+    
     public func loadStates() {
         guard let statesDictionary = statePickerDelegate?.statePickerAvailableStates() else {
             self.states = [State]()
             return
         }
         
-        let stateCodes = statesDictionary.map({ $0.0 }).sort()
-        
-        for state in stateCodes {
-            states.append(State(code: state, name: statesDictionary[state]!))
+        // Build our array of available states to display
+        for (code, name) in statesDictionary {
+            states.append(State(code: code.uppercaseString, name: name))
         }
         
+        // Sort the states depending on which option is selected for the picker title.
+        if let titleOption = statePickerDelegate?.statePickerTitleOptionForRow() {
+            switch titleOption {
+            case .code:
+                self.states.sortInPlace({ $0.code < $1.code })
+            case .name:
+                self.states.sortInPlace({ $0.name < $1.name })
+            }
+        }
     }
     
 }
+
+// MARK: Picker View Data Source
 
 extension USStatePicker: UIPickerViewDataSource {
     
@@ -52,6 +67,8 @@ extension USStatePicker: UIPickerViewDataSource {
     }
     
 }
+
+// MARK: Picker View Delegate
 
 extension USStatePicker: UIPickerViewDelegate {
     
